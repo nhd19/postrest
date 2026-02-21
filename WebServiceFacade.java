@@ -1,16 +1,16 @@
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/webservice")
+@RequestMapping("/api")
 public class WebServiceFacade {
 
-    @GetMapping("/hello/{name}")
-    public String hello(@PathVariable String name) {
-        return "Hello, " + name + "!";
+    @GetMapping("/hello")
+    public String hello() {
+        return "Hello, World!";
     }
 
     @PostMapping("/sumar")
-    public int sumar(@RequestBody int[] numbers) {
-        return Arrays.stream(numbers).sum();
+    public int sumar(@RequestParam int a, @RequestParam int b) {
+        return a + b;
     }
 }
